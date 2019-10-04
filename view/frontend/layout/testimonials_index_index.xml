@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-right" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <link src="PME_Testimonials::js/custom.js"/>
+        <css src="PME_Testimonials::css/main.css" />
+        <css src="PME_Testimonials::css/owl.carousel.min.css"/>
+        <css src="PME_Testimonials::css/owl.theme.min.css"/>
+        <css src="PME_Testimonials::css/fontawesome-all.min.css"/>
+        <css src="PME_Testimonials::css/style.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="PME\Testimonials\Block\Frontend\Templates\Listing\Listing" name="listing_container" template="" />
+        </referenceContainer>
+         <referenceContainer name="sidebar.additional">
+            <block class="PME\Testimonials\Block\Frontend\Templates\Slider\Sidebar" before="-" name="slider_container" template="" />
+        </referenceContainer>
+    </body>
+</page>

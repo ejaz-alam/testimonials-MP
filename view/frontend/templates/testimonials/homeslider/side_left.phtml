@@ -1,0 +1,49 @@
+<?php $collection = $this->getFeaturedPosts();
+ if ($block->isModuleEnabled() == true && $block->enableHomepage() == 1 ){?>
+<div class="content-heading">
+   <h2 class="title review-title"><?php echo $block->homepageSliderText(); ?></h2>
+</div>
+
+<div id="testimonial-slider" class="owl-carousel">
+    <?php
+    foreach ($collection as $item){?>
+        <div class="testimonial-10">
+                    <p class='description'>"<?php echo $item->getContent()?>"</p>
+                    <?php if(!empty($item->getAvatar())){
+                      $postImage= $block->resize($item->getAvatar(),100,100);
+                        echo '<div class="pic"> <img src='.$postImage.'> </div>';
+                      }
+                    else
+                    {
+                        echo '<div class="pic"> <img class="pic" src='.$block->getPlaceHolderImage().'> </div>';
+                    } ?>
+
+                     <?php if (strlen($item->getNickName()) > 30)
+                    {
+                        $stringCut = substr($item->getNickName(), 0, 20);?>
+                       <h3 class='title'><?php echo $stringCut ?> - <span class="post"><?php echo $item->getJob(); ?></span></h3>
+                    <?php }
+                    else
+                    {?>
+                       <h3 class='title'><?php echo $item->getNickName() ?>
+                       <?php if ($this->enablePosition() == 1) {?>
+                        <span class="post"><?php echo $item->getJob(); ?></span>
+                        <?php }?></h3>
+                    <?php }?>
+                    <?php if ($this->enableStar() == 1) {?>
+                        <ul class="rating">
+                          <?php
+                          if (!empty ($item->getRating()))
+                          {
+                            for ($i = 0 ; $i < (int)$item->getRating() ; $i++)
+                            {
+                                echo "<li class='fa fa-star'></li>";
+                            }
+                          }
+                          ?>
+                        </ul>
+                        <?php } ?>
+                </div>
+    <?php  } ?>
+    </div>
+  <?php } ?>

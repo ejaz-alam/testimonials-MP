@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+  <menu>
+          <update id="PME_Extensions::pmeextensions"
+                    title="PME Extensions"
+                    module="Magento_Backend"
+                    sortOrder="77"
+                    resource="PME_Extensions::pmeextensions"
+          />
+          <add id="PME_Testimonials::testimonialsparent" 
+               title="PME Testimonials" 
+               module="PME_Testimonials" 
+               sortOrder="72"  
+               parent="PME_Extensions::pmeextensions" 
+               resource="PME_Testimonials::testimonialsparent" 
+          />
+           <add id="PME_Testimonials::testimonialsconfig" 
+               title="Manage Testimonials" 
+               module="PME_Testimonials"
+               action="testimonials/" 
+               sortOrder="72"  
+               parent="PME_Testimonials::testimonialsparent" 
+               resource="PME_Testimonials::testimonialsconfig" 
+          /> 
+          <add id="PME_Testimonials::testimonialssetting" 
+               title="Settings" 
+               module="PME_Testimonials" 
+               sortOrder="73"
+               resource="PME_Testimonials::testimonialsconfig" 
+               parent="PME_Testimonials::testimonialsparent" 
+               action="adminhtml/system_config/edit/section/testimonials" />
+  </menu>
+   </config>
+
+  

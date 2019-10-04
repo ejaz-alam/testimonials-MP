@@ -1,0 +1,79 @@
+
+<?php $collection = $this->getFeaturedPosts();
+
+?>
+<?php if ($block->showSidebar() == 1 ){?>
+<div class="slider-block">
+    <strong class="slider-block-heading"><?php echo $block->sidebarText(); ?></strong>
+</div>
+
+<div id="testimonial-slider" class="owl-carousel">
+    <?php
+    foreach ($collection as $item){?>
+        <div class="testimonial-10">
+            <?php if(!empty($item->getAvatar())){
+            $postImage= $block->resize($item->getAvatar(),111.6,111.6);
+            echo '<div class="pic"> <img src='.$postImage.'> </div>';
+          }else{
+            echo '<div class="testimonial-profile pic"><img src='.$block->getPlaceHolderImage().' alt=""> </div>';
+            } ?>
+            <h3 class="title"><?php echo $item->getNickName();?></h3>
+            <?php if ($this->enableStar() == 1) {?>
+            <ul class="rating">
+              <?php
+              if (!empty ($item->getRating()))
+              {
+                for ($i = 0 ; $i < (int)$item->getRating() ; $i++) 
+                {
+                    echo "<li class='fa fa-star'></li>";
+                }
+              }
+              ?>
+            </ul>
+            <?php } ?> 
+            <?php if (strlen($item->getContent()) > 250)
+            {
+                $stringCut = substr($item->getContent(), 0, 200);
+                echo  __('<p class="description">%1<b id="click-me%2">...</b>
+                      </p>', $stringCut);
+            }
+            else
+            {
+                echo  "<p class='description'>". $item->getContent()."
+                  </p>";
+            }
+            ?>
+            <?php if ($this->enableSocial() == 1) {?>
+            <ul class="social-links">
+                <?php if (!empty($item->getTwitter()))
+                {
+                    echo "<li><a href=".$item->getTwitter()."  target='_blank' class='fab fa-twitter'></a></li>";
+                }
+                if (!empty($item->getFacebook()))
+                {
+                    echo "<li><a href=".$item->getFacebook()." target='_blank' class='fab fa-facebook-f'></a></li>";
+                }
+                if (!empty($item->getLinkedin()))
+                {
+                    echo "<li><a href=".$item->getLinkedin()." target='_blank' class='fab fa-linkedin'></a></li>";
+                }
+                if (!empty($item->getYoutube()))
+                {
+                    echo "<li><a href=".$item->getYoutube()." target='_blank' class='fab fa-youtube'></a></li>";
+                }
+                if (!empty($item->getVimeo()))
+                {
+                    echo "<li><a href=".$item->getVimeo()." target='_blank' class='fab fa-vimeo'></a></li>";
+                }
+                ?>
+            </ul>
+            <?php } ?>
+            <?php if ($this->enablePosition() == 1) {?>
+            <span class="post"><?php echo $item->getJob(); ?></span>
+            <?php }?>
+        </div>
+    <?php  }
+    }
+    ?>
+
+</div>

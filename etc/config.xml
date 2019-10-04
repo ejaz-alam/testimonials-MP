@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <testimonials>
+            <url_route>
+                <routing>testimonials</routing>
+            </url_route>
+            <listing>
+              <listing_header>Testimonials</listing_header>
+              <show_items>5</show_items>
+            </listing>
+            <homepage_slider>
+                <homepage_header>Featured Reviews</homepage_header>
+                <no_item>5</no_item>
+            </homepage_slider>
+            <sidebar_slider>
+              <sidebar_header>What our customer says</sidebar_header>
+              <nos_item>3</nos_item>
+            </sidebar_slider>
+            <category_sidebar_slider>
+              <cat_sidebar_header>What our customer says</cat_sidebar_header>
+              <cat_nos_item>3</cat_nos_item>
+            </category_sidebar_slider>
+        </testimonials>
+    </default>
+</config>

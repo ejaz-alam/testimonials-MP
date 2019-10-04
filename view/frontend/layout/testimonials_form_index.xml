@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="PME_Testimonials::css/main.css" />
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <container name="add_new" htmlTag="div" htmlClass="add_new" before="footer">
+            	<block class="PME\Testimonials\Block\Frontend\Form\Add" name="testimonial_form" template="PME_Testimonials::testimonials/form/add.phtml"/>
+			</container>
+        </referenceContainer>
+
+
+    </body>
+</page>

@@ -1,0 +1,161 @@
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<form class="form form-login"
+              action="<?php echo $block->getFormAction() ?>"
+              method="post"
+              name="add-testimonials"
+              enctype="multipart/form-data"
+              id="testimonials-form"
+              data-mage-init='{"validation":{"rules": {
+              "facebook": {"required":false, "validate-url":true },
+              "twitter": {"required":false, "validate-url":true },
+              "youtube": {"required":false, "validate-url":true },
+              "linkedin": {"required":false, "validate-url":true },
+              "vimeo": {"required":false, "validate-url":true },
+              "nick_name": {"required":true, "maxlength":30, "letters-with-basic-punc":true },
+              "job": {"required":false, "maxlength":20, "letters-with-basic-punc":true },
+              "title": {"required":true, "maxlength":20, "letters-with-basic-punc":true },
+              "company_name": {"required":false, "maxlength":20, "letters-with-basic-punc":true },
+              "company_website": {"required":false, "maxlength":50 },
+              "address": {"required":false, "maxlength":300 },
+              "content": {"required":true, "maxlength":300, "minlength":150},
+              "rating": {"required":true},
+              "email": {"required":true, "email":true },
+              "company_website": {"validate-url":true } } } }'>
+            <?= $block->getBlockHtml('formkey') ?>
+            <fieldset class="fieldset login" data-hasrequired="<?= $block->escapeHtml(__('* Required Fields')) ?>">
+                <h2 class="page-title"><span><?= $block->escapeHtml(__('Submit Your Testimonials')) ?></span></h2><hr>
+            <div class="field nick_name required">
+                <label class="label" for="name"><span><?= $block->escapeHtml(__('Name')) ?></span></label>
+                <div class="control">
+                    <input name="nick_name" id="nick_name" title="<?= $block->escapeHtml(__('Name')) ?>" value="" class="input-text" type="text" data-validate="{required:true}"/>
+                </div>
+            </div>
+            <div class="field position">
+                <label class="label" for="position"><span><?= $block->escapeHtml(__('Position')) ?></span></label>
+                <div class="control">
+                    <input name="job" id="position" title="<?= $block->escapeHtml(__('Position')) ?>" value="" class="input-text" type="text"/>
+                </div>
+            </div>
+             <div class="field company_name">
+                <label class="label" for="company_name"><span><?= $block->escapeHtml(__('Company Name')) ?></span></label>
+                <div class="control">
+                    <input name="company_name" id="company_name" title="<?= $block->escapeHtml(__('Company Name')) ?>" value="" class="input-text" type="text" />
+                </div>
+            </div>
+             <div class="field company_website">
+                <label class="label" for="position"><span><?= $block->escapeHtml(__('Company Website')) ?></span></label>
+                <div class="control">
+                    <input name="company_website" id="company_website" title="<?= $block->escapeHtml(__('Company Website')) ?>" value="" class="input-text" type="text" />
+                </div>
+            </div>
+            <div class="field email required">
+                <label class="label" for="email"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
+                <div class="control">
+                    <input name="email" id="email" title="<?= $block->escapeHtml(__('Email')) ?>" value="" class="input-text" type="text" data-validate="{required:true}"/>
+                </div>
+            </div>
+            <div class="field address">
+                <label class="label" for="address"><span><?= $block->escapeHtml(__('Address')) ?></span></label>
+                <div class="control">
+                    <input name="address" id="address" title="<?= $block->escapeHtml(__('Address')) ?>" value="" class="input-text" type="text" />
+                </div>
+            </div>
+            <div class="field rating required">
+                <label class="label" for="star"><span><?= $block->escapeHtml(__('Rate')) ?></span></label><br/>
+                <div class="starRating" data-validate="{required:true}">
+                  <input id="rating5" type="radio" name="rating"  value="5">
+                  <label for="rating5"></label>
+                  <input id="rating4" type="radio" name="rating"  value="4">
+                  <label for="rating4"></label>
+                  <input id="rating3" type="radio" name="rating"  value="3">
+                  <label for="rating3"></label>
+                  <input id="rating2" type="radio" name="rating"  value="2">
+                  <label for="rating2"></label>
+                  <input id="rating1"  type="radio" name="rating"  value="1" >
+                  <label for="rating1"></label>
+                </div>
+            </div>
+            <div class="field summary required">
+                <label class="label" for="title"><span><?= $block->escapeHtml(__('Summary')) ?></span></label>
+                <div class="control">
+                    <input name="title" id="title" title="<?= $block->escapeHtml(__('Title')) ?>" value="" class="input-text" type="text" data-validate="{required:true}"/>
+                </div>
+            </div>
+            <div class="field content required">
+                <label class="label" for="content"><span><?= $block->escapeHtml(__('Let us know your thoughts')) ?></span></label>
+                <div class="control">
+                    <textarea name="content" id="content" title="<?= $block->escapeHtml(__('Let us know your thoughts')) ?>" value="" class="input-text" rows="7" data-validate="{required:true}"> </textarea>
+                </div>
+            </div>
+             <?php  if ( $block->getHelper()->showAllowImage()==1) { ?>
+                    <div class='field avatar'>
+                    <label class='label' for='avatar'><span><?= $block->escapeHtml(__('Avatar Image')) ?></span></label>
+                    <div class='control'>
+                        <input name='avatar' id='avatar' title='<?= $block->escapeHtml(__('Display Picture: ')) ?>' type='file'/>
+                        </div>
+                    </div>
+                <?php } ?>
+            <div class="field facebook">
+                <label class="label" for="facebook"><span><?= $block->escapeHtml(__('Facebook')) ?></span></label>
+                <div class="control">
+                    <input name="facebook" id="facebook" title="<?= $block->escapeHtml(__('Facebook')) ?>" value="" class="input-text" type="text"/>
+                </div>
+            </div>
+            <div class="field twitter">
+                <label class="label" for="twitter"><span><?= $block->escapeHtml(__('Twitter')) ?></span></label>
+                <div class="control">
+                    <input name="twitter" id="twitter"  title="<?= $block->escapeHtml(__('Twitter')) ?>" value="" class="input-text" type="text"/>
+                </div>
+            </div>
+            <div class="field linkedin">
+                <label class="label" for="linkedin"><span><?= $block->escapeHtml(__('LinkedIn')) ?></span></label>
+                <div class="control">
+                    <input name="linkedin" id="linkedin"  title="<?= $block->escapeHtml(__('LinkedIn')) ?>" value="" class="input-text" type="text" />
+                </div>
+            </div>
+            <div class="field youtube">
+                <label class="label" for="youtube"><span><?= $block->escapeHtml(__('Youtube')) ?></span></label>
+                <div class="control">
+                    <input name="youtube" id="youtube" title="<?= $block->escapeHtml(__('Youtube')) ?>" value="" class="input-text" type="text"/>
+                </div>
+            </div>
+             <div class="field vimeo">
+                <label class="label" for="vimeo"><span><?= $block->escapeHtml(__('Vimeo')) ?></span></label>
+                <div class="control">
+                    <input name="vimeo" id="vimeo"  title="<?= $block->escapeHtml(__('Vimeo')) ?>" value="" class="input-text" type="text"/>
+                </div>
+            </div>
+                <?= $block->getChildHtml('form_additional_info') ?>
+                <?php if ($block->EnableCaptcha() == 1)
+                {?>
+                  <div class="g-recaptcha" data-sitekey="<?= $block->secretKey(); ?>"></div>
+               <?php } ?>
+
+                </br>
+                <div class="actions-toolbar required">
+                    <div class="primary"><button type="submit" class="action login primary" name="submit" id="submit"><span><?= $block->escapeHtml(__('Submit')) ?></span></button>
+                    <button type="reset" class="action login default" name="reset" id="reset"><span><?= $block->escapeHtml(__('Reset')) ?></span></button>
+                    </div>
+                </div>
+                <div class="actions-toolbar">
+                    <div class="default"></div>
+                </div>
+            </fieldset>
+        </form>
+        <script>
+            requirejs([
+                'jquery'
+              ], function($) {
+
+                   $(document).on('submit', '#testimonials-form', function(){
+
+                      var isSubmit = jQuery(this).valid() && grecaptcha.getResponse() != '';
+
+                      if (!isSubmit) {
+                        alert("Please fill captcha");
+                      }
+                      return isSubmit;
+
+                   });
+              })
+        </script>

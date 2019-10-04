@@ -1,0 +1,10 @@
+<?php
+if ($this->_templateSidebarDesign->getSidebarTemplateDesign() === "1") {
+    echo $block->getChildHtml('container_Sidebar_display.bottom_meta');
+}elseif ($this->_templateSidebarDesign->getSidebarTemplateDesign() === "2") {
+    echo $block->getChildHtml('container_Sidebar_display.image_down');
+}elseif ($this->_templateSidebarDesign->getSidebarTemplateDesign() === "3") {
+    echo $block->getChildHtml('container_Sidebar_display.no_image');
+}elseif ($this->_templateSidebarDesign->getSidebarTemplateDesign() === "4") {
+    echo $block->getChildHtml('container_Sidebar_display.side_left');
+}

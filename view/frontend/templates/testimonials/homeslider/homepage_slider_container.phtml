@@ -1,0 +1,19 @@
+<?php
+if (!$this->_templateSidebarDesign->moduleEnabled()){
+}else{
+	if ($this->_templateSidebarDesign->getHomepageTemplateDesign() == "1") {
+	    echo $block->getChildHtml('bottom_meta');
+	}elseif ($this->_templateSidebarDesign->getHomepageTemplateDesign() == "2") {
+	    echo $block->getChildHtml('image_down');
+	}elseif ($this->_templateSidebarDesign->getHomepageTemplateDesign() == "3") {
+	    echo $block->getChildHtml('no_image');
+	}elseif ($this->_templateSidebarDesign->getHomepageTemplateDesign() == "4") {
+	    echo $block->getChildHtml('side_left');
+	}
+}
+
+
+
+
+
+

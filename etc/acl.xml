@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="PME_Extensions::pmeextensions" title="PME Testimonials" sortOrder="51">
+                    <resource id="PME_Testimonials::testimonialsparent" title="Testimonials" sortOrder="10">
+                    	<resource id="PME_Testimonials::testimonialsconfig" title="Manage Testimonials" sortOrder="10" />
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

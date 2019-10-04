@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="testimonials" translate="label" sortOrder="550">
+            <label>PME Extensions</label>
+        </tab>
+
+        <section id="testimonials" showInDefault="1" showInWebsite="0" showInStore="0" type="text" translate="label" sortOrder="100">
+            <label>Testimonials</label>
+            <tab>testimonials</tab>
+            <resource>PME_Testimonials::testimonialsconfig</resource>
+
+            <group id="appearance" showInDefault="1" showInStore="0" showInWebsite="0" sortOrder="10">
+                <label>General</label>
+
+                <field id="display" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" >
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <group id="listing" showInDefault="1" showInStore="0" showInWebsite="0" sortOrder="10">
+                <label>Listing Page</label>
+
+                <field id="listing_theme" translate="label" type="select" sortOrder="10" showInDefault="1">
+                    <label>Select Listing Page Theme</label>
+                    <source_model>PME\Testimonials\Model\Config\Source\Selecttheme</source_model>
+                </field>
+                <field id="listing_header" translate="label" type="text" sortOrder="10" showInDefault="1">
+                    <label>Listing Page Header Text</label>
+                    <validate>validate-length maximum-length-150</validate>
+                </field>
+                <field id="show_items" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Default Items to Display</label>
+                    <validate>validate-number validate-digits validate-greater-than-zero no-whitespace validate-length maximum-length-3</validate>
+                    <comment>Use integer value.Maximum 999</comment>
+                </field>
+            </group>
+
+            <group id="homepage_slider" showInDefault="1" showInStore="0" showInWebsite="0" sortOrder="10">
+                <label>Homepage Slider Setting</label>
+
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" >
+                    <label>Enable Homepage Slider</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="homepage_template" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Select Homepage Slider Theme</label>
+                    <source_model>PME\Testimonials\Model\Config\Source\HomepageTheme</source_model>
+                </field>
+                <field id="homepage_header" sortOrder="10" type="text" translate="label" showInDefault="1">
+                    <validate>validate-length maximum-length-150</validate>
+                    <label>Homepage Slider Header Text</label>
+                </field>
+                <field id="no_item" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>No of Testimonials on Homepage</label>
+                    <validate>validate-number validate-digits validate-greater-than-zero no-whitespace validate-length maximum-length-3</validate>
+                    <comment>Blank field will display all featured testimonials</comment>
+                </field>
+            </group>
+            <group id="category_sidebar_slider" showInDefault="1" showInStore="0" showInWebsite="0" sortOrder="10">
+                <label>Category Sidebar Slider Setting</label>
+                <field id="cat_sidebar" translate="label" type="select" sortOrder="10" showInDefault="1">
+                    <label>Display Slider on Category Page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="cat_sidebar_template" translate="label" type="select" sortOrder="10" showInDefault="1">
+                    <label>Select Slider Theme</label>
+                    <source_model>PME\Testimonials\Model\Config\Source\SliderTheme</source_model>
+                </field>
+                <field id="cat_sidebar_header" translate="label" type="text" sortOrder="10" showInDefault="1">
+                    <label>Slider Header Text</label>
+                </field>
+                <field id="cat_nos_item" translate="label" type="text" sortOrder="10" showInDefault="1">
+                    <label>No of Testimonials on Category Page</label>
+                    <validate>validate-number validate-digits validate-greater-than-zero no-whitespace validate-length maximum-length-3</validate>
+                    <comment>Blank field will display all featured testimonials</comment>
+                </field>
+            </group>
+            <group id="sidebar_slider" showInDefault="1" showInStore="0" showInWebsite="0" sortOrder="10">
+                <label>Sidebar Slider Setting</label>
+                <field id="sidebar" translate="label" type="select" sortOrder="10" showInDefault="1">
+                    <label>Display Slider in Sidebar</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="sidebar_template" translate="label" type="select" sortOrder="10" showInDefault="1">
+                    <label>Select Sidebar Slider Theme</label>
+                    <source_model>PME\Testimonials\Model\Config\Source\SliderTheme</source_model>
+                </field>
+                <field id="sidebar_header" translate="label" type="text" sortOrder="10" showInDefault="1">
+                    <label>Sidebar Slider Header Text</label>
+                </field>
+                <field id="nos_item" translate="label" type="text" sortOrder="10" showInDefault="1">
+                    <label>No of Testimonials in Sidebar</label>
+                    <validate>validate-number validate-digits validate-greater-than-zero no-whitespace validate-length maximum-length-3</validate>
+                    <comment>Blank field will display all featured testimonials</comment>
+                </field>
+            </group>
+
+            <group id="frontend" showInDefault="1" showInStore="0" showInWebsite="0" sortOrder="10">
+                <label>Testimonial Form</label>
+
+                <field id="avatar_upload" translate="label" type="select" sortOrder="10" showInDefault="1">
+                    <label>Allow user to Upload Image on Frontend</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If enabled, User will be able to upload image while filling the Testimonial Form.</comment>
+
+                </field>
+                <field id="enable_captcha" translate="label" type="select" sortOrder="10" showInDefault="1">
+                    <label>Enable Captcha</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="reCaptcha" translate="label" type="text" sortOrder="10" showInDefault="1">
+                    <label>reCAPTCHA Secret Key</label>
+                    <comment><![CDATA[For your Secret key Goto <a href="https://www.google.com/recaptcha">reCAPTCHA</a> Account]]></comment>
+                </field>
+            </group>
+            <group id="design" showInDefault="1" showInStore="0" showInWebsite="0" sortOrder="10">
+                <label>Testimonial Frontend</label>
+
+                <field id="enable_stars" translate="label" type="select" sortOrder="10" showInDefault="1">
+                    <label>Show Star Ratings on All Templates</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_social" translate="label" type="select" sortOrder="10" showInDefault="1">
+                    <label>Show Social Links on All Templates</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_position" translate="label" type="select" sortOrder="10" showInDefault="1">
+                    <label>Show Position on All Templates</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="url_route" showInDefault="1" showInStore="0" showInWebsite="0" sortOrder="10">
+                <label>URL Route</label>
+
+                <field id="routing" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" >
+                    <label>URL</label>
+                    <validate> validate-length maximum-length-30 required-entry validate-identifier</validate>
+                    <comment>Enter URL for Frontend </comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

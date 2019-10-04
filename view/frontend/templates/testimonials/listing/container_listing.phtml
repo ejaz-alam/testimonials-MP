@@ -1,0 +1,10 @@
+<?php
+    if ($this->_templateDesign->showTemplateDesign() == 1) {
+      echo $block->getChildHtml('listing_grid');
+    }
+    elseif ($this->_templateDesign->showTemplateDesign() == 2) {
+      echo $block->getChildHtml('listing_meta_bottom');
+    }
+    elseif ($this->_templateDesign->showTemplateDesign() == 3) {
+      echo $block->getChildHtml('listing_without_image');
+    }

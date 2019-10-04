@@ -1,0 +1,110 @@
+﻿<?php
+$baseUrl= $this->getBaseUrl();
+$ConfigUrl  = $this->getConfigUrl();
+$mediaUrl = $ConfigUrl . '/pub/media/testimonials/';
+?>
+<?php $collection = $this->getPosts();
+?>
+  <div class="container-testimonial">
+  <div class="b-title">
+      <h2 class="testimonial-title"><?php echo $block->headTextforListing(); ?></h2>
+    </div>
+    <div class="add-new">
+      <a href="../testimonials/form"><button class="button">Add testimonials</button></a>
+    </div>
+  </div>
+  </br>
+  <div class="clearfix"></div>
+  <div class="container">
+    <?php
+    $count = 1;
+     foreach ($collection as $item){
+     if(!empty($item->getAvatar()))
+  {
+    $postImage= $block->resize($item->getAvatar(),111.6,111.6);
+  }
+     ?>
+           <div class="testimonial-20 col-4 testimonial-content">
+                        <p class='description'><?php echo $item->getContent()?></p>
+
+                        <div class="testimonial-review">
+                            <?php if(!empty($item->getAvatar())){
+                      $postImage= $block->resize($item->getAvatar(),100,100);
+                        echo '<div class="pic"> <img src='.$postImage.'> </div>';
+                      }
+                    else
+                    {
+                        echo '<div class="pic"> <img class="pic" src='.$block->getPlaceHolderImage().'> </div>';
+                    } ?>
+                    <!-- Star Ratings  -->
+                    <?php if ($this->enableStar() == 1) {?>
+                      <ul class="rating">
+                        <?php
+                        if (!empty ($item->getRating()))
+                        {
+                          for ($i = 0 ; $i < (int)$item->getRating() ; $i++)
+                          {
+                              echo "<li class='fa fa-star'></li>";
+                          }
+                        }
+                        ?>
+                      </ul>
+                  <?php } ?>
+        <!-- Social Links -->
+        <?php if ($this->enableSocial() == 1) {?>
+                    <ul class="social-links">
+                        <?php if (!empty($item->getTwitter()))
+                        {
+                            echo "<li><a href=".$item->getTwitter()."  target='_blank' class='fab fa-twitter'></a></li>";
+                        }
+                        if (!empty($item->getFacebook()))
+                        {
+                            echo "<li><a href=".$item->getFacebook()." target='_blank' class='fab fa-facebook-f'></a></li>";
+                        }
+                        if (!empty($item->getLinkedin()))
+                        {
+                            echo "<li><a href=".$item->getLinkedin()." target='_blank' class='fab fa-linkedin'></a></li>";
+                        }
+                        if (!empty($item->getYoutube()))
+                        {
+                            echo "<li><a href=".$item->getYoutube()." target='_blank' class='fab fa-youtube'></a></li>";
+                        }
+                        if (!empty($item->getVimeo()))
+                        {
+                            echo "<li><a href=".$item->getVimeo()." target='_blank' class='fab fa-vimeo'></a></li>";
+                        }
+                        ?>
+                    </ul>
+                    <?php } ?>
+                            <?php if (strlen($item->getNickName()) > 30)
+                    {
+                        $stringCut = substr($item->getNickName(), 0, 20);?>
+                       <h3 class='title'><?php echo $stringCut ?> - <small class="post"><?php echo $item->getJob(); ?></small></h3>
+                    <?php }
+                    else
+                    {?>
+                       <div class="content-heading"><h4 class='title'><?php echo $item->getNickName() ?></h4></div>
+                       <small class="post"><?php echo $item->getJob(); ?></small>
+                    <?php }?>
+                        </div>
+                    </div>
+
+
+     <?php
+     if ($count%3 == 0)
+    {
+        echo "</div><div class='container' >";
+    }
+    $count++;
+
+     }
+     if ($count%3 != 1);
+     ?>
+     </div>
+
+
+<?php if ($block->getPagerHtml()): ?>
+<div class="order-products-toolbar toolbar bottom align clearfix">
+<?php echo $block->getPagerHtml(); ?>
+</div>
+<?php endif ?>
